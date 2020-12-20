@@ -1,0 +1,259 @@
+<!-- <!DOCTYPE html> -->
+<html>
+    <head>
+        <title>
+            Events Page for Follege!!
+        </title>
+        <link href="styles.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400&family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
+        </head>
+    <body  style="background-color:black; color:white;">
+        <!-- <button onclick="loadtheEvents()">Button</button>
+            Sort by Date
+            <input type="checkbox" onclick="filterTheEvents('sod','sortbd')"  name="sod" value="Sort by date"/>
+            <br>
+            Sort by Cost
+            <input type="checkbox" onclick="filterTheEvents('soc','sortbc')" name="soc" value="Sort by cost"/>
+            <br>
+            Sort by Interest
+            <input type="checkbox" onclick="filterTheEvents('soi','sortbi')" name="soi" value="Sort by Interest"/>
+            <br>
+            <button onclick="filterTheEvents()">FILTER IT</button>
+   
+            <div style="display: none;" id = "sortbd"><input type="date" id="sod_input"/></div>
+            <div style="display: none;" id = "sortbc"><input type="checkbox" value="paid" id="soc_input"/>Paid </div>
+            <div style="display: none;" id = "sortbi">sorted by interests</div>
+            <button onclick="filterDammit('sod','soc','soi')">Filter</button> -->
+
+                <div class="heading" style="color:white; width:100%;">
+                    <img src="white text.png" style="width:90%; max-width:400px;"/>
+                </div>
+            
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="text-align:center;">
+                  <div class="form-inline my-2 my-lg-0" style="margin-left:10%;">
+                    <input class="form-control mr-sm-2" type="search" onkeyup="happen(this)" placeholder="Search using title" aria-label="Search">
+                  </div>
+
+                  <div class="form-inline">
+                      <button class="btn btn-primary my-2 my-sm-0" onclick="openFilter()">Apply Filter</button>
+                  </div>
+                  <div class="form-inline">
+                    <button class="btn btn-warning my-2 my-sm-0" onclick="refreshPage()" style="margin-left:5%;"> REFRESH </button>
+                  </div>
+                  <div class="form-inline">
+                      <button class="btn btn-info my-2 my-sm-0" onclick="addEvent()" style="margin-left:10%;">ADD EVENT</button>
+                  </div>
+              </nav>
+              <div id="collapsible" style="scrollbar-width:2px; scrollbar-color: rgba(36, 35, 35, 0.671);">
+                </div>
+            <div id="Results"> 
+                <div class="container-fluid" style="padding-top:20px;">
+                    <div class="row" id="box">
+                        <div id="loading" style="margin-left:auto; margin-right:auto; margin-top:10%;">
+                        </div>
+                        <div id="404" style="width:200px; margin-left:auto; margin-right:auto; margin-top:10%;">
+                            <image src="404.png" style="width:90%;"/>
+                        </div>
+                        <!-- <div class="col-12 col-xs-12 col-md-4 col-lg-3" style="margin-bottom:2%;">
+                            <div class="container-fluid" style="background-color:rgba(128, 126, 0, 0.171); border-radius:10px; border-color:green; border-width:4px; border-style: solid;">
+                                <div class="row" style="padding:0px">
+                                    <div class="col-5 col-xs-5 col-md-5 col-lg-5">
+                                        <img src="https://follege.herokuapp.com/images/default_backdrop.jpg" style="width:110%; margin-top:5%;"/>
+                                    </div>
+                                    <div class="col-7 col-xs-7 col-md-7 col-lg-7">
+                                        <h5>Title</h5>
+                                        <h5>By</h5>
+                                        <p onclick="openModal('myModal')">More Info <span style=" transform: rotate(180deg);">&#8689;</span></p>
+                                    </div>
+                                    <div class="col-12 col-md-12 col-xs-12 col-lg-12" style="text-align: center; padding-bottom:5px;">
+                                        <button style="background-color:pink;">Delete ❌</button>
+                                        <button style="background-color:yellow;">Update ➕</button>  
+                                        <br>
+                                    </div>
+                                </div>
+                                <div id="myModal" class="modal">
+
+                                    <div class="modal-content">
+                                      <span class="close" onclick="closeModal('myModal')">&times;</span>
+                                      <p>Some text in the Modal..</p>
+                                    </div>
+                                  
+                                  </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-xs-12 col-md-4 col-lg-3">
+                            <div class="container-fluid" style="background-color:rgba(128, 0, 0, 0.171); border-radius:10px; border-color:rgb(128, 0, 0); border-width:4px; border-style: solid;">
+                                <div class="row" style="padding:10px;">
+                                    <div class="col-5 col-xs-5 col-md-5 col-lg-5">
+                                        <img src="https://follege.herokuapp.com/images/default_backdrop.jpg" style="width:110%;"/>
+                                    </div>
+                                    <div class="col-7 col-xs-7 col-md-7 col-lg-7">
+                                        <h5>Title</h5>
+                                        <h5>By</h5>
+                                        <h5>Cost</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-xs-12 col-md-4 col-lg-3">
+                            <div class="container-fluid" style="background-color:rgba(0, 128, 0, 0.171); border-radius:10px; border-color:green; border-width:4px; border-style: solid;">
+                                <div class="row" style="padding:10px;">
+                                    <div class="col-5 col-xs-5 col-md-5 col-lg-5">
+                                        <img src="https://follege.herokuapp.com/images/default_backdrop.jpg" style="width:110%;"/>
+                                    </div>
+                                    <div class="col-7 col-xs-7 col-md-7 col-lg-7">
+                                        <h5>Title</h5>
+                                        <h5>By</h5>
+                                        <h5>Cost</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-xs-12 col-md-4 col-lg-3">
+                            <div class="container-fluid" style="background-color:rgba(0, 128, 0, 0.171); border-radius:10px; border-color:green; border-width:4px; border-style: solid;">
+                                <div class="row" style="padding:10px;">
+                                    <div class="col-5 col-xs-5 col-md-5 col-lg-5">
+                                        <img src="https://follege.herokuapp.com/images/default_backdrop.jpg" style="width:110%;"/>
+                                    </div>
+                                    <div class="col-7 col-xs-7 col-md-7 col-lg-7">
+                                        <h5>Title</h5>
+                                        <h5>By</h5>
+                                        <h5>Cost</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-xs-12 col-md-4 col-lg-3" style="margin-bottom:4%;">
+                            <div class="container-fluid" style="background-color:rgba(0, 128, 0, 0.171); border-radius:10px; border-color:green; border-width:4px; border-style: solid;">
+                                <div class="row" style="padding:10px;">
+                                    <div class="col-5 col-xs-5 col-md-5 col-lg-5">
+                                        <img src="https://follege.herokuapp.com/images/default_backdrop.jpg" style="width:110%;"/>
+                                    </div>
+                                    <div class="col-7 col-xs-7 col-md-7 col-lg-7">
+                                        <h5>Title</h5>
+                                        <h5>By</h5>
+                                        <h5>Cost</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    
+                    </div>
+                </div>
+        </div>
+        <div id="filterBox" style="display:none;">
+            <div class="row" style="text-align:center;">
+                <div style="width:fit-content; border-radius: 20px; background-color:white; height:max-content; margin-left:auto; margin-right:auto; padding:20px;">
+                <fieldset>
+                    <legend>
+                        <h2>Interests</h2>
+                    </legend>
+                    <div class="wrapper" style="position: fixed; left:0px; bottom:0px; opacity: 0;">
+                        <input checked class="interest" id="null" name='interests' type="checkbox"
+                            value="null">
+                        <div class="control-me">
+                            <label for='Finance'>null</label>
+                        </div>
+                    </div>
+                    <div class="wrapper">
+                        <input class="interest" id="Finance" name='interests' type="checkbox"
+                            value="Finance">
+                        <div class="control-me">
+                            <label for='Finance' onclick="add('Finance')">Finance</label>
+                        </div>
+                    </div>
+                    <div class="wrapper">
+                        <input class="interest" id="Entrepreneurship" name='interests' type="checkbox"
+                            value="Entrepreneurship">
+                        <div class="control-me">
+                            <label for='Entrepreneurship' onclick="add('Entrepreneurship')">Entrepreneurship</label>
+                        </div>
+                    </div>
+                    <div class="wrapper">
+                        <input class="interest" id="Marketing" name='interests' type="checkbox"
+                            value="Marketing">
+                        <div class="control-me">
+                            <label for='Marketing' onclick="add('Marketing')">Marketing</label>
+                        </div>
+                    </div>
+                    <div class="wrapper">
+                        <input class="interest" id="Product" name='interests' type="checkbox"
+                            value="Product Management">
+                        <div class="control-me">
+                            <label for='Product' onclick="add('Product Management')">Product Management</label>
+                        </div>
+                    </div>
+                    <div class="wrapper">
+                        <input class="interest" id="Programming" name='interests' type="checkbox"
+                            value="Programming">
+                        <div class="control-me">
+                            <label for='Programming' onclick="add('Programming')">Programming</label>
+                        </div>
+                    </div>
+                    <div class="wrapper">
+                        <input class="interest" id="AIML" name='interests' type="checkbox"
+                            value="AI/ML">
+                        <div class="control-me">
+                            <label for='AIML' onclick="add('AI/ML')">AI/ML</label>
+                        </div>
+                    </div>
+                    <div class="wrapper">
+                        <input class="interest" id="Technology" name='interests' type="checkbox"
+                            value="Technology">
+                        <div class="control-me">
+                            <label for='Technology' onclick="add('Technology')">Technology</label>
+                        </div>
+                    </div>
+                    <div class=" wrapper">
+                        <input class="interest" id="Design" name='interests' type="checkbox"
+                            value="Design">
+                        <div class="control-me">
+                            <label for='Design' onclick="add('Design')">Design</label>
+                        </div>
+                    </div>
+                    <div class="wrapper">
+                        <input class="interest" id="Fests" name='interests' type="checkbox"
+                            value="Fests">
+                        <div class="control-me">
+                            <label for='Fests' onclick="add('Fests')">Fests</label>
+                        </div>
+                    </div>
+                    <div class="wrapper">
+                        <input class="interest" id="Gaming" name='interests' type="checkbox"
+                            value="Gaming">
+                        <div class="control-me">
+                            <label for='Gaming' onclick="add('Gaming')">Gaming</label>
+                        </div>
+                    </div>
+                </fieldset>
+                <button style="margin-left:auto; margin-right:auto; font-size:15px;" class="btn btn-success" onclick=" filterDammit() , closeFilter()">CLOSE AND APPLY FILTER</button>
+            </div>    
+            </div>
+            </div>
+
+        <div class="legend">
+            <div style=" width:110px; position:fixed; z-index: 9999; bottom:10px; right:20px; background: rgb(255, 130, 130); text-align:center; font-weight:bold; font-family: 'Oswald',sans-serif; color:black;">Not Free</div>
+            <div style=" width:110px;position:fixed; z-index: 9999; bottom:50px; right:20px; background: rgb(130, 209, 255); text-align:center; font-weight:bold; font-family: 'Oswald',sans-serif;  color:black;">Free</div>
+        </div>
+
+
+        <script src="js.js">
+        </script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    </body>
+</html>

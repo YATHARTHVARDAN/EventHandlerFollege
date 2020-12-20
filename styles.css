@@ -1,0 +1,309 @@
+
+body
+{
+    background-color: rgb(43, 168, 226);
+    color:white;
+}
+html{
+    scroll-behavior: smooth;
+    scrollbar-color: transparent;
+    scrollbar-width: 0px;;
+}
+#Results
+{
+    width:100%;
+    height:100%;
+    padding:0px;
+    margin:0px;
+    
+}
+
+.heading{
+    font-size:120%;
+    text-align: center;
+}
+
+p
+{
+    border-radius:10px;
+    border-color:greenyellow;
+    border-width:1px;
+    border-style: solid;
+    width:fit-content;
+    padding:2px;
+    margin-left:auto;
+    margin-right:auto;
+}
+p:hover{
+    cursor: pointer;
+    color:greenyellow;
+}
+
+.card_event
+{
+    background-color: rgba(255, 255, 255, 0.219);
+    border-radius: 2%;
+}
+.card_image{
+    width:20%;
+    text-align: center;
+    padding: 0px;
+}
+.card_body ~ button
+{
+    text-align: left;
+    font-size:120%;
+    color:white;
+}
+button:hover
+{
+    cursor:pointer;
+    color:indianred;
+}
+.col-12 .col-xs-12 .col-md-4 .col-lg-3
+{
+    margin:0px;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+input[type="radio"]
+{
+    background-color:black;
+}
+input[type="checked"] ~ label
+{
+    background-color:pink;
+}
+
+
+
+#loading{
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    display: none;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+  }
+
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+
+#filterBox
+{
+    display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */ 
+  color:black;
+  
+}
+
+.wrapper {
+    max-width: max-content;
+    min-width: max-content;
+    /* margin-right:2%;
+margin-left:2%;
+margin-bottom:5%; */
+    display: inline-block;
+    margin-bottom: 3%;
+}
+
+.wrapper>input {
+    opacity: 0;
+}
+
+.control-me {
+    width: fit-content;
+    height: fit-content;
+    background-color: white;
+    padding: 4px 6px 1px 6px;
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+}
+
+label:hover {
+    cursor: pointer;
+}
+
+
+.interest:checked~.control-me {
+    width: fit-content;
+    height: fit-content;
+    background-color: #00e096;
+    padding: 4px 6px 1px 6px;
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.toggle-text {
+    width: fit-content;
+    height: fit-content;
+    background-color: rgb(26, 26, 26);
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-right: 2%;
+    padding-left: 2%;
+    border-radius: 10px;
+    font-size: 70%;
+    margin-bottom: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.toggle-text>label {
+    color: #e00000;
+}
+
+.toggle-text:hover {
+    cursor: pointer;
+}
+
+.toggle-text>label {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+input[type="radio"]:checked~label {
+    color: #00e096;
+}
+
+fieldset {
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    width: 100%;
+    color:black;
+}
+
+fieldset > legend
+{
+    color:black;
+}
+
+.legend{
+    display:none;
+}
+
+@media screen and (min-width: 500px) {
+    .legend {
+      display:block;
+      padding:0px;
+      height:fit-content;
+      padding:5px;
+      font-size:25px;
+    }
+  }
+
+  #collapsible{
+      width:90%;
+      max-width:400px;
+      background-color:white;
+      text-align:left;
+      max-height:200px;
+      height:max-content;
+      overflow-y: scroll;
+      margin-top:0.5%;
+      margin-left:5%;
+  }
+
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+  #collapsible > p{
+    width:100%;
+    margin:0%;
+    white-space: normal;
+    padding:2px;
+    border-radius: 0px;
+    border-color:transparent;
+    height:fit-content;
+    border-bottom-color:transparent;
+    font-family: 'Oswald',sans-serif;
+    font-weight: bold;
+    font-size:110%;
+    margin-bottom:0.5%;
+    padding-left:2%;
+  }
+  #collapsible > p{
+      color:black;
+  }
+  #collapsible > p:hover{
+      color:black;
+  }
