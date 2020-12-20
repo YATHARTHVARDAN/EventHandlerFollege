@@ -129,7 +129,7 @@ window.onload = async ()=>{
     errorDiv.style.display = "none";
     loadingDiv.style.display = "block";
     try {
-        let response =  await fetch('http://event-follege.herokuapp.com/events/',{
+        let response =  await fetch('https://event-follege.herokuapp.com/events/',{
         method:'GET'
     });
     resp = response;
