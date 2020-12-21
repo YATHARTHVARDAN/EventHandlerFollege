@@ -183,6 +183,7 @@ deleteAnEvent = async (id,imageUrl,title) => {
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'
                   },
+            mode:'no-cors',
                 body:{'id':id }
             });
         var result = await response.json();
@@ -215,6 +216,7 @@ deleteAnEvent = async (id,imageUrl,title) => {
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'
                   },
+            mode:'no-cors',
                 body:{'url':key}
             });
         var result2 = await response2.json();
