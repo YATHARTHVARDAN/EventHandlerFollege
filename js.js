@@ -172,8 +172,8 @@ deleteAnEvent = async (id,imageUrl,title) => {
     }
 
     console.log("Trying");
-    var url = 'http://localhost:3443/page/delete';
-    var url1 = 'http://localhost:3443/page/deletePhoto';
+    var url = 'https://event-follege.herokuapp.com/page/delete';
+    var url1 = 'http://event-follege.herokuapp.com/page/deletePhoto';
 
     console.log(id);
     try{
