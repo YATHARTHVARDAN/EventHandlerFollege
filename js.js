@@ -172,59 +172,64 @@ deleteAnEvent = async (id,imageUrl,title) => {
     }
 
     console.log("Trying");
-    var url = 'https://event-follege.herokuapp.com/page/delete';
-    var url1 = 'http://event-follege.herokuapp.com/page/deletePhoto';
+    var url = 'https://event-follege.herokuapp.com/page/delete/' + id;
+    var url1 = 'https://event-follege.herokuapp.com/page/deletePhoto/';
 
     console.log(id);
-    try{
-        var response = await fetch(url,
-            {
-                method:'POST',
-                headers: {
-                    'Content-Type': 'application/json;charset=utf-8'
-                  },
-            mode:'no-cors',
-                body:{'id':id }
-            });
+    var result;
+    fetch(url)
+    .then(async response => {
         var result = await response.json();
-    }
-    catch(err)
-    {
-        alert("Some Error occured while deleting !!");
-        console.log("Couldnt Delete the selected event");
-        console.log()
-        return;
-    }
-    if(response.status != 200)
-    {
-        alert('Error in deleting the event');
-        return;
-    }   
+        if(response.status>=400)
+        {
+            alert("Bad call");
+            return ;
+        }
+    })   
+    .then(async data => {
+        result = await data;
+        console.log(data);
+    })
+    .catch((error) => {console.log(error);alert(error); return;});
 
+    console.log(imageUrl);
+    if(imageUrl === "https://follege.herokuapp.com/images/default_backdrop.jpg")
+    {
+        try{
+            var f = document.getElementById(id);
+            f.style.display = 'none';
+            alert("Event deleted");
+            return;
+        }
+        catch(err)
+        {
+            console.log("Error in deleting");
+            return;
+        }
+    }
     var key = "";
     var i = 0;
     for(var i = imageUrl.length-1;imageUrl[i]!='/';)
     {
         i--;
     }
+    var result2;
 
-    key = imageUrl.substring(i);
-    try{
-        var response2 = await fetch(url1,
-            {
-                method:'POST',
-                headers: {
-                    'Content-Type': 'application/json;charset=utf-8'
-                  },
-            mode:'no-cors',
-                body:{'url':key}
-            });
-        var result2 = await response2.json();
-    }
-    catch(err){
-        alert('Event Deleted but image was not deleted');
-        return;
-    }
+    key = imageUrl.substring(i+1);
+    fetch(url1 + key)
+    .then(async response => {
+        var res = await response.json();
+        if(response.status>=400)
+        {
+            alert("Photo was not deleted");
+            return;
+        }
+    })   
+    .then(data => {
+        result2 = data;
+        console.log(data);
+    })
+    .catch((error) => {console.log(error);alert(error); return;});
 
     console.log(result);
     console.log(result2);
@@ -232,23 +237,13 @@ deleteAnEvent = async (id,imageUrl,title) => {
     try{
         var f = document.getElementById(id);
         f.style.display = 'none';
+        alert("Event deleted completed Including photo");
     }
     catch(err)
     {
-        console.log("Error in deleting");
+        console.log("Error in removing the event from the screen");
     }
-    
 
-    try{
-        title = title.toLowerCase();
-        title = title.replaceAll(' ','');
-        title = title.replaceAll(':','');
-        var g = document.getElementById(title);
-        g.style.display = 'none';
-    }
-    catch(err){
-        console.log("Error in deleting prefeernce")
-    }
 }
 
 
