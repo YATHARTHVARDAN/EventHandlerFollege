@@ -12,6 +12,8 @@ collapsibleDiv.style.display = 'block';
 console.log(collapsibleDiv);
 var sI = {};
 
+var deletedElements = {};
+
 var originalEvents = [];
 var filteredEvents = [];
 
@@ -40,15 +42,13 @@ const add = (text) => {
 
 var Filter = {
     'Finance':{},
-    'Entrepreneurship':{},
+    'Coding Competitions':{},
     'Gaming':{},
-    'Marketing':{},
+    'Adventure':{},
     'Product Management':{},
-    'Programming':{},
-    'AI/ML':{},
+    'Startup & Business':{},
+    'Culture & Fest':{},
     'Technology':{},
-    'Design':{},
-    'Fests':{},
     'Paid':{},
     'Unpaid':{}
 };
@@ -83,7 +83,7 @@ filterDammit = async () => {
         resultDiv.removeChild(resultDiv.firstChild);
     }
     loadingDiv.style.display = 'block';
-    if(Object.keys(sI).length == 0 || Object.keys(sI).length==10)
+    if(Object.keys(sI).length == 0 || Object.keys(sI).length==8)
     {
         loadingDiv.style.display = 'none';
         dataListLoaded.forEach(data => {
@@ -191,6 +191,7 @@ deleteAnEvent = async (id,imageUrl,title) => {
         console.log(data);
     })
     .catch((error) => {console.log(error);alert(error); return;});
+    deletedElements[id] = id;
 
     console.log(imageUrl);
     if(imageUrl === "https://follege.herokuapp.com/images/default_backdrop.jpg")
@@ -267,6 +268,17 @@ closeFilter = () => {
 updateAnEvent = async () => {
     alert("Work in progress");
     return;
+}
+
+const openModal = (id) => {
+    var modal = document.getElementById(id);
+    modal.style.display = 'block';
+    return;
+}
+
+const closeModal = (id) => {
+    var modal = document.getElementById(id);
+    modal.style.display = 'none';
 }
 
 
@@ -356,6 +368,10 @@ const happen = (textBox) => {
 
 function generateResults(data)
 {
+    if(deletedElements[data.id])
+    {
+        return;
+    }
     const wrapper = document.createElement("div");
     wrapper.setAttribute("class","col-12 col-xs-12 col-md-4 col-lg-3");
     wrapper.setAttribute("style","margin-bottom:2%;");
@@ -456,10 +472,3 @@ const generatePrefernce = (text) => {
     console.log(collapsibleDiv);
     delete t,O,id,a;
 }
-
-
-const openModal = (title,by,about,imageUrl,cost,interests,startDateTime,endDateTime) => {
-    console.log(title,by,about,imageUrl,cost,interests,startDateTime,endDateTime);
-}
-
-

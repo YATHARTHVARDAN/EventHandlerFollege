@@ -151,88 +151,74 @@
         <div id="filterBox" style="display:none;">
             <div class="row" style="text-align:center;">
                 <div style="width:fit-content; border-radius: 20px; background-color:white; height:max-content; margin-left:auto; margin-right:auto; padding:20px;">
-                <fieldset>
-                    <legend>
-                        <h2>Interests</h2>
-                    </legend>
-                    <div class="wrapper" style="position: fixed; left:0px; bottom:0px; opacity: 0;">
-                        <input checked class="interest" id="null" name='interests' type="checkbox"
-                            value="null">
-                        <div class="control-me">
-                            <label for='Finance'>null</label>
+                    <fieldset>
+                        <legend>
+                            <h2>Interests</h2>
+                        </legend>
+                        <div class="wrapper" style="position: fixed; left:0px; bottom:0px; opacity: 0;">
+                            <input checked class="interest" id="null" name='interests' type="checkbox"
+                                value="null">
+                            <div class="control-me">
+                                <label for='Finance'>null</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="wrapper">
-                        <input class="interest" id="Finance" name='interests' type="checkbox"
-                            value="Finance">
-                        <div class="control-me">
-                            <label for='Finance' onclick="add('Finance')">Finance</label>
+                        <div class="wrapper">
+                            <input class="interest" id="Finance" name='interests' type="checkbox"
+                                value="Finance">
+                            <div class="control-me">
+                                <label for='Finance' onclick="add('Startup & Business')">Startup & Business</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="wrapper">
-                        <input class="interest" id="Entrepreneurship" name='interests' type="checkbox"
-                            value="Entrepreneurship">
-                        <div class="control-me">
-                            <label for='Entrepreneurship' onclick="add('Entrepreneurship')">Entrepreneurship</label>
+                        <div class="wrapper">
+                            <input class="interest" id="Entrepreneurship" name='interests' type="checkbox"
+                                value="Entrepreneurship">
+                            <div class="control-me">
+                                <label for='Entrepreneurship' onclick="add('Finance')">Finance</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="wrapper">
-                        <input class="interest" id="Marketing" name='interests' type="checkbox"
-                            value="Marketing">
-                        <div class="control-me">
-                            <label for='Marketing' onclick="add('Marketing')">Marketing</label>
+                        <div class="wrapper">
+                            <input class="interest" id="Marketing" name='interests' type="checkbox"
+                                value="Marketing">
+                            <div class="control-me">
+                                <label for='Marketing' onclick="add('Product Management')">Product Management</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="wrapper">
-                        <input class="interest" id="Product" name='interests' type="checkbox"
-                            value="Product Management">
-                        <div class="control-me">
-                            <label for='Product' onclick="add('Product Management')">Product Management</label>
+                        <div class="wrapper">
+                            <input class="interest" id="Product" name='interests' type="checkbox"
+                                value="Product Management">
+                            <div class="control-me">
+                                <label for='Product' onclick="add('Coding Competitions')">Coding Competitions</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="wrapper">
-                        <input class="interest" id="Programming" name='interests' type="checkbox"
-                            value="Programming">
-                        <div class="control-me">
-                            <label for='Programming' onclick="add('Programming')">Programming</label>
+                        <div class="wrapper">
+                            <input class="interest" id="Programming" name='interests' type="checkbox"
+                                value="Programming">
+                            <div class="control-me">
+                                <label for='Programming' onclick="add('Technology')">Technology</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="wrapper">
-                        <input class="interest" id="AIML" name='interests' type="checkbox"
-                            value="AI/ML">
-                        <div class="control-me">
-                            <label for='AIML' onclick="add('AI/ML')">AI/ML</label>
+                        <div class="wrapper">
+                            <input class="interest" id="AIML" name='interests' type="checkbox"
+                                value="AI/ML">
+                            <div class="control-me">
+                                <label for='AIML' onclick="add('Gaming')">Gaming</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="wrapper">
-                        <input class="interest" id="Technology" name='interests' type="checkbox"
-                            value="Technology">
-                        <div class="control-me">
-                            <label for='Technology' onclick="add('Technology')">Technology</label>
+                        <div class="wrapper">
+                            <input class="interest" id="Technology" name='interests' type="checkbox"
+                                value="Technology">
+                            <div class="control-me">
+                                <label for='Technology' onclick="add('Culture & Fest')">Culture & Fest</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class=" wrapper">
-                        <input class="interest" id="Design" name='interests' type="checkbox"
-                            value="Design">
-                        <div class="control-me">
-                            <label for='Design' onclick="add('Design')">Design</label>
+                        <div class=" wrapper">
+                            <input class="interest" id="Design" name='interests' type="checkbox"
+                                value="Design">
+                            <div class="control-me">
+                                <label for='Design' onclick="add('Adventure')">Adventure</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="wrapper">
-                        <input class="interest" id="Fests" name='interests' type="checkbox"
-                            value="Fests">
-                        <div class="control-me">
-                            <label for='Fests' onclick="add('Fests')">Fests</label>
-                        </div>
-                    </div>
-                    <div class="wrapper">
-                        <input class="interest" id="Gaming" name='interests' type="checkbox"
-                            value="Gaming">
-                        <div class="control-me">
-                            <label for='Gaming' onclick="add('Gaming')">Gaming</label>
-                        </div>
-                    </div>
-                </fieldset>
+                    </fieldset>
                 <button style="margin-left:auto; margin-right:auto; font-size:15px;" class="btn btn-success" onclick=" filterDammit() , closeFilter()">CLOSE AND APPLY FILTER</button>
             </div>    
             </div>
