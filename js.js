@@ -64,9 +64,15 @@ addToFilter = async (data) => {
         Filter['Paid'][ data.id ] = data;
     }
 
+   try{
     (data.interests).forEach(int => {
         Filter[int.interest][data.id] = data;
     });
+   }
+   catch(err)
+   {
+       console.log(err);
+   }
 };
 
 
@@ -368,10 +374,10 @@ const happen = (textBox) => {
 
 function generateResults(data)
 {
-    if(deletedElements[data.id])
-    {
-        return;
-    }
+   if(deletedElements[data.id])
+   {
+       return;
+   }
     const wrapper = document.createElement("div");
     wrapper.setAttribute("class","col-12 col-xs-12 col-md-4 col-lg-3");
     wrapper.setAttribute("style","margin-bottom:2%;");
