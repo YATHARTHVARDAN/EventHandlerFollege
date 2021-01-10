@@ -61,7 +61,8 @@ const sendNotification = async (a,b,c) => {
         'headers' : {
             'Content-Type':'application/json'
         },
-        body: JSON.stringify({
+        'mode':'no-cors',
+        'body': JSON.stringify({
             to:c,
             sound:'default',
             title:a,
