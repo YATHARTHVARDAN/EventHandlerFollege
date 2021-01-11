@@ -45,7 +45,7 @@ var Filter = {
     'Coding Competitions':{},
     'Gaming':{},
     'Adventure':{},
-    'Product Management':{},
+    'Marketing':{},
     'Startup & Business':{},
     'Culture & Fest':{},
     'Technology':{},
